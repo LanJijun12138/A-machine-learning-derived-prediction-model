@@ -1,66 +1,66 @@
-# 躯干疼痛ADL残疾风险预测器
+# Trunk Pain ADL Disability Risk Predictor
 
-这是一个基于机器学习的Streamlit Web应用，用于预测躯干疼痛患者的ADL（日常生活活动）残疾风险。
+This is a machine learning-based Streamlit web application for predicting ADL (Activities of Daily Living) disability risk in patients with trunk pain.
 
-## 功能特点
+## Features
 
-- 🎯 **智能预测**：基于SVM模型预测ADL残疾风险
-- 📊 **可视化解释**：使用SHAP瀑布图解释预测结果
-- 🌐 **中文界面**：完全中文化的用户界面
-- 📱 **响应式设计**：支持各种设备访问
-- 🔍 **特征重要性**：详细展示各变量对预测的影响
+- 🎯 **Intelligent Prediction**: Predicts ADL disability risk based on SVM model
+- 📊 **Visual Explanation**: Uses SHAP waterfall charts to explain prediction results
+- 🌐 **English Interface**: Fully English user interface
+- 📱 **Responsive Design**: Supports access from various devices
+- 🔍 **Feature Importance**: Detailed display of each variable's impact on predictions
 
-## 安装和运行
+## Installation and Running
 
-### 方法1：使用启动脚本（推荐）
+### Method 1: Using Startup Script (Recommended)
 
 ```bash
-# 进入streamlit目录
+# Navigate to streamlit directory
 cd streamlit
 
-# 运行启动脚本
+# Run startup script
 python run_app.py
 ```
 
-### 方法2：直接使用Streamlit命令
+### Method 2: Direct Streamlit Command
 
 ```bash
-# 进入streamlit目录
+# Navigate to streamlit directory
 cd streamlit
 
-# 安装依赖
+# Install dependencies
 pip install -r requirements.txt
 
-# 启动应用
+# Start application
 streamlit run app.py
 ```
 
-### 方法3：使用虚拟环境
+### Method 3: Using Virtual Environment
 
 ```bash
-# 创建虚拟环境
+# Create virtual environment
 python -m venv .venv
 
-# 激活虚拟环境
+# Activate virtual environment
 # Windows:
 .venv\Scripts\activate
 # Unix/Linux/Mac:
 source .venv/bin/activate
 
-# 安装依赖
+# Install dependencies
 pip install -r requirements.txt
 
-# 启动应用
+# Start application
 streamlit run app.py
 ```
 
-## 系统要求
+## System Requirements
 
 - Python 3.8+
-- 内存：至少2GB可用内存
-- 存储：至少100MB可用空间
+- Memory: At least 2GB available RAM
+- Storage: At least 100MB available space
 
-## 依赖包
+## Dependencies
 
 - streamlit >= 1.36
 - pandas >= 1.5
@@ -71,105 +71,105 @@ streamlit run app.py
 - matplotlib >= 3.7
 - plotly >= 5.0
 
-## 使用方法
+## Usage
 
-1. **启动应用**：运行上述任一启动命令
-2. **输入数据**：在表单中输入患者的17个临床变量
-3. **获取预测**：点击"开始预测"按钮
-4. **查看结果**：查看预测类别、风险概率和SHAP解释图
-5. **理解结果**：使用说明部分帮助理解预测结果
+1. **Start Application**: Run any of the startup commands above
+2. **Input Data**: Enter 17 clinical variables in the form
+3. **Get Prediction**: Click "Start Prediction" button
+4. **View Results**: Check prediction category, risk probability, and SHAP explanation chart
+5. **Understand Results**: Use the instructions section to help understand prediction results
 
-## 输入变量说明
+## Input Variable Description
 
-应用需要输入以下17个变量：
+The application requires input of the following 17 variables:
 
-### 人口统计学
-- **性别**：女性(0) / 男性(1)
-- **年龄**：45-85岁
-- **婚姻状况**：未婚(0) / 已婚(1)
-- **教育水平**：高中以下(1) / 高中及以上(2)
+### Demographics
+- **Gender**: Female(0) / Male(1)
+- **Age**: 45-85 years
+- **Marital Status**: Unmarried(0) / Married(1)
+- **Education Level**: Below high school(1) / High school and above(2)
 
-### 疾病史
-- **高血压**：否(0) / 是(1)
-- **糖尿病**：否(0) / 是(1)
-- **中风**：否(0) / 是(1)
-- **情绪问题**：否(0) / 是(1)
-- **记忆相关疾病**：否(0) / 是(1)
-- **关节炎或风湿病**：否(0) / 是(1)
-- **跌倒**：否(0) / 是(1)
-- **抑郁症**：否(0) / 是(1)
+### Medical History
+- **Hypertension**: No(0) / Yes(1)
+- **Diabetes**: No(0) / Yes(1)
+- **Stroke**: No(0) / Yes(1)
+- **Emotional Problems**: No(0) / Yes(1)
+- **Memory-related Diseases**: No(0) / Yes(1)
+- **Arthritis or Rheumatism**: No(0) / Yes(1)
+- **Falls**: No(0) / Yes(1)
+- **Depression**: No(0) / Yes(1)
 
-### 生活方式
-- **自评健康状况**：差(1) / 一般(2) / 好(3)
-- **体力活动水平**：低(1) / 中(2) / 高(3)
-- **住院次数**：≥0
-- **网络参与**：否(0) / 使用互联网(1)
-- **智力活动**：否(0) / 参与(1)
+### Lifestyle
+- **Self-rated Health Status**: Poor(1) / Fair(2) / Good(3)
+- **Physical Activity Level**: Low(1) / Medium(2) / High(3)
+- **Hospitalization Count**: ≥0
+- **Internet Participation**: No(0) / Uses internet(1)
+- **Intellectual Activities**: No(0) / Participates(1)
 
-## 输出结果解释
+## Output Result Interpretation
 
-### 预测类别
-- **0**：无ADL残疾风险
-- **1**：存在ADL残疾风险
+### Prediction Category
+- **0**: No ADL disability risk
+- **1**: ADL disability risk exists
 
-### 风险概率
-- 0-1之间的数值，越接近1风险越高
-- 显示为百分比形式
+### Risk Probability
+- Numerical value between 0-1, closer to 1 indicates higher risk
+- Displayed as percentage
 
-### SHAP解释图
-- 显示每个特征对预测结果的贡献
-- 正值：增加风险
-- 负值：降低风险
-- 绝对值越大，影响越显著
+### SHAP Explanation Chart
+- Shows each feature's contribution to prediction results
+- Positive values: Increase risk
+- Negative values: Decrease risk
+- Larger absolute values indicate more significant impact
 
-## 注意事项
+## Important Notes
 
-⚠️ **重要提醒**：
-- 此工具提供数据驱动的估计，不能替代专业医疗建议
-- 模型基于训练数据，实际应用需结合临床判断
-- 年龄和住院次数会自动标准化处理
-- 所有分类变量已编码为数值
+⚠️ **Important Reminder**:
+- This tool provides data-driven estimates and cannot replace professional medical advice
+- The model is based on training data, and practical application requires clinical judgment
+- Age and hospitalization count are automatically standardized
+- All categorical variables are encoded as numerical values
 
-## 故障排除
+## Troubleshooting
 
-### 常见问题
+### Common Issues
 
-1. **依赖包安装失败**
+1. **Dependency Package Installation Failure**
    ```bash
    pip install --upgrade pip
    pip install -r requirements.txt
    ```
 
-2. **端口被占用**
+2. **Port Occupied**
    ```bash
    streamlit run app.py --server.port 8502
    ```
 
-3. **内存不足**
-   - 关闭其他应用程序
-   - 减少SHAP背景样本数量（在代码中修改）
+3. **Insufficient Memory**
+   - Close other applications
+   - Reduce SHAP background sample count (modify in code)
 
-4. **文件路径错误**
-   - 确保在streamlit目录下运行
-   - 检查data和model文件夹是否存在
+4. **File Path Error**
+   - Ensure running in streamlit directory
+   - Check if data and model folders exist
 
-### 获取帮助
+### Getting Help
 
-如果遇到问题，请检查：
-1. Python版本是否兼容
-2. 所有依赖包是否正确安装
-3. 必要文件是否存在
-4. 控制台错误信息
+If you encounter problems, please check:
+1. Whether Python version is compatible
+2. Whether all dependency packages are correctly installed
+3. Whether necessary files exist
+4. Console error messages
 
-## 技术架构
+## Technical Architecture
 
-- **前端**：Streamlit
-- **后端**：Python + scikit-learn
-- **模型**：SVM分类器
-- **解释性**：SHAP (SHapley Additive exPlanations)
-- **数据处理**：pandas + numpy
-- **可视化**：matplotlib + plotly
+- **Frontend**: Streamlit
+- **Backend**: Python + scikit-learn
+- **Model**: SVM classifier
+- **Explainability**: SHAP (SHapley Additive exPlanations)
+- **Data Processing**: pandas + numpy
+- **Visualization**: matplotlib + plotly
 
-## 许可证
+## License
 
-本项目仅供学习和研究使用。
+This project is for learning and research purposes only.
