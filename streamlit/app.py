@@ -105,7 +105,7 @@ def build_numeric_scaler(x_train_scaled: pd.DataFrame) -> Optional[StandardScale
     target_cols = ["Age", "Inpatient times"]
 
     # 1) Preferred: explicit unscaled training data
-    unscaled_path = PROJECT_ROOT.parent / "data" / "X_train_notscaled.csv"
+    unscaled_path = DATA_DIR / "X_train_notscaled.csv"
     if unscaled_path.exists():
         df_unscaled = pd.read_csv(unscaled_path)
         if df_unscaled.columns[0] in ("Unnamed: 0", ""):
@@ -115,7 +115,7 @@ def build_numeric_scaler(x_train_scaled: pd.DataFrame) -> Optional[StandardScale
             return scaler
 
     # 2) Fallback to broader raw training file if available
-    generic_path = PROJECT_ROOT.parent / "data" / "train_data_notscaled.csv"
+    generic_path = DATA_DIR / "train_data_notscaled.csv"
     if generic_path.exists():
         raw_df = pd.read_csv(generic_path)
         # Build name mapping (case-insensitive, strip spaces/underscores)
